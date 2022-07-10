@@ -40,14 +40,14 @@ abstract class BaseRepository<Entity> {
         return id;
     }
 
-    public async insertIfNotExists (data: Record<string, unknown>): Promise<boolean> {
-        const row = await this.findOne(data);
+    public async insertIfNotExists (data: Record<string, unknown>, options: FindManyOptions<Entity>): Promise<number> {
+        const row = await this.findOne(options);
 
         if (row) {
-            return true;
+            return -2;
         }
 
-        return (!!await this.insert(data));
+        return this.insert(data);
     }
 
     private async tryCatch (callback: ()=> void): Promise<any> {

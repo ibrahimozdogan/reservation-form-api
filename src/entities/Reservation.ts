@@ -1,5 +1,5 @@
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from 'typeorm';
-import { IsDateString, IsEmail, Length } from 'class-validator';
+import { IsDateString, IsEmail, Length, Max, Min } from 'class-validator';
 
 @Entity()
 class Reservation {
@@ -65,6 +65,14 @@ class Reservation {
     })
     @Length(11)
     public phoneNumber: string;
+
+    @Column({
+        type: 'tinyint',
+        unsigned: true,
+    })
+    @Min(1)
+    public numberOfGuests: number;
+
 
     @Column({
         type: 'date',
