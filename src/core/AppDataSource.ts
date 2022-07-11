@@ -15,7 +15,7 @@ const AppDataSource = new DataSource({
     entities: [
         ...Object.values(Tables),
     ],
-    synchronize: false,
+    synchronize: true,
     logging: 'all',
     logger: 'file',
     cache: {
@@ -23,12 +23,5 @@ const AppDataSource = new DataSource({
     },
 });
 
-AppDataSource.initialize()
-    .then(() => {
-        console.log('Data Source has been initialized!');
-    })
-    .catch((err) => {
-        console.error('Error during Data Source initialization', err);
-    });
 
 export default AppDataSource;

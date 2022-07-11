@@ -87,8 +87,7 @@ class Reservation {
     public checkOutDate: Date;
 
     @CreateDateColumn({
-        type: 'timestamp',
-        select: false,
+        type: 'datetime',
     })
     public createdAt: Date;
 }

@@ -2,7 +2,6 @@ import { Router } from 'express';
 import { Request, Response } from 'express';
 import { ReservationRepository } from '@repositories';
 
-
 export default function (route: Router) {
     const reservationRepository = new ReservationRepository();
 
@@ -25,7 +24,7 @@ export default function (route: Router) {
             } else if (result === -2) {
                 res.status(200).send({ status: false, message: 'RESERVATION_EXISTS' });
             } else {
-                res.status(200).send({ status: true, message: 'SUCCESS' });
+                res.status(201).send({ status: true, message: 'SUCCESS' });
             }
         } catch (e) {
             res.status(500).send({ status: false, message: 'SOMETHING_WENT_WRONG' });
@@ -35,7 +34,6 @@ export default function (route: Router) {
 
     const ITEM_PER_PAGE = 10;
     route.get('/v1/reservations/:page', async (req: Request<{ page: number }>, res: Response) => {
-
         try {
             const reservations = await reservationRepository.find({
                 skip: ITEM_PER_PAGE * (req.params.page - 1),
@@ -44,6 +42,7 @@ export default function (route: Router) {
 
             res.status(200).send({ status: true, reservations });
         } catch (e) {
+            console.log(e);
             res.status(500).send({ status: false, message: 'SOMETHING_WENT_WRONG' });
         }
     });
