@@ -31,7 +31,7 @@ docker-compose up
 ```
 
 ```tip
-You can access the node application via http://localhost:3333,
+You can access the node application via http://localhost:3333
 ```
 
 Any questions : <halilibrahimozdogan2@gmail.com>
