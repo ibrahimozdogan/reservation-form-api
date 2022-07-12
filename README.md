@@ -1,6 +1,7 @@
 # reservation-form-api
 
 Demo link: https://reservation-form-demo.s3.eu-central-1.amazonaws.com/index.html
+Technologies: Node.js, Mysql, Docker, AWS CodePipeline (partially implemented), AWS EC2, AWS RDS, Typescript, Jest, Typeorm, Cloudflare
 
 Pre-Requests
 
