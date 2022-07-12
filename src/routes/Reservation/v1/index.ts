@@ -9,8 +9,6 @@ export default function (route: Router) {
         try {
             const result = await reservationRepository.insertIfNotExists(req.body, {
                 where: {
-                    firstName: req.body.firstName,
-                    lastName: req.body.lastName,
                     phoneNumber: req.body.phoneNumber,
                     checkInDate: req.body.checkInDate,
                     checkOutDate: req.body.checkOutDate
